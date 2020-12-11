@@ -1,0 +1,133 @@
+<!-- 配置引擎 -->
+<template>
+	<div class="wrap">
+		<h5>{{ other.title }}</h5>
+		<div class="divider"></div>
+		<div class="msg-title">{{ other.msg }}</div>
+		<div class="form">
+			<div class="form-item" v-for="(v, i) of forms" :key="i">
+				<div class="label">{{ v.label }}</div>
+				<el-input v-model.number="v.val" size="small"></el-input>
+				<el-checkbox v-if="v.isCheck" v-model="v.check">{{ v.checkText }}</el-checkbox>
+				<div v-else class="empty"></div>
+				<span class="msg">{{ v.msg }}</span>
+			</div>
+		</div>
+		<div class="btn">
+			<el-button type="primary" size="small" @click="handleConfirm">{{ $t('button.confirm') }}</el-button>
+		</div>
+	</div>
+</template>
+
+<style lang="scss" scoped>
+	.wrap {
+		padding: 20px;
+		.divider {
+			height: 1px;
+			background: #ddd;
+			margin: 5px 0 0;
+		}
+		.msg-title {
+			color: #666;
+			padding: 10px 0 10px 10px;
+		}
+		.form {
+			.form-item {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px;
+				color: #666;
+				::v-deep .el-input {
+					width: 160px;
+				}
+				::v-deep .el-checkbox {
+					width: 80px;
+					margin: 0 30px;
+				}
+				.label {
+					width: 280px;
+				}
+				.empty {
+					width: 80px;
+					margin: 0 30px;
+				}
+				.msg {
+					width: 340px;
+					color: #999;
+				}
+			}
+		}
+		.btn {
+			padding: 40px 0 0;
+			display: flex;
+			justify-content: center;
+		}
+	}
+</style>
+
+<script>
+	import { mapGetters } from 'vuex'
+	import { Checkbox, Message } from 'element-ui'
+
+	import { insertAutoCalibrationConfig, getCalibrationConfig } from '@/api/loadManage/setting'
+	import { getCopyObj } from '@/utils/util'
+
+	export default {
+		components: {
+			ElCheckbox: Checkbox
+		},
+		data() {
+			return {
+				forms: [],
+				other: {},
+				curNode: {}
+			}
+		},
+		computed: {
+			...mapGetters([
+				'userInfo'
+			])
+		},
+		created() {
+			this.other = this.$t('calibration.other')
+			this.forms = getCopyObj(this.$t('calibration.forms'))
+			this.requestConfig()
+		},
+		methods: {
+			async requestConfig() {
+				const { forms } = this 
+				try {
+					const res = await getCalibrationConfig()
+					this.curNode = res.result || {}
+					for (const v of forms.values()) {
+						this.$set(v, 'val', res.result[v.key])
+					}
+				} catch(err) {
+
+				}
+			},
+			async handleConfirm() {
+				const { forms, userInfo, curNode } = this
+				const data = {
+					depId: userInfo.id
+				}
+				for (const v of forms.values()) {
+					data[v.key] = v.val
+				}
+				if (curNode.id) {
+					data.id = curNode.id
+				}
+				try {
+					await insertAutoCalibrationConfig(data)
+					Message({
+			          message: this.$t('success.add'),
+			          type: 'success'
+			        })
+				} catch(err) {
+
+				}
+			}
+		}
+	}
+</script>

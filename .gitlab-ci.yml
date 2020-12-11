@@ -1,0 +1,25 @@
+stages:
+   - production
+   - testing
+s:
+   stage: testing
+   tags:
+    - mystaging
+   script: 
+    - whoami
+    - export RSYNC_PASSWORD=kyjl2018
+    - rsync -avzP test/ --delete gpsweb@192.168.2.238::gpsweb
+   only:
+    - master
+   when: always
+p:
+   stage: production
+   tags:
+    - myproduction
+   script: 
+    - whoami
+    - export RSYNC_PASSWORD=kyjl2018
+    - rsync -avzP formal/ --delete gpsweb@192.168.2.30::gpsweb
+   only:
+    - master
+   when: manual

@@ -1,0 +1,63 @@
+{
+  "name": "ai_car_manage",
+  "version": "1.0.211",
+  "date": "6.12.01",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --report",
+    "lint": "vue-cli-service lint",
+    "test:e2e": "vue-cli-service test:e2e",
+    "formal": "vue-cli-service build --mode formal",
+    "test": "vue-cli-service build --mode test"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7",
+    "axios": "^0.19.1",
+    "coordtransform": "^2.1.2",
+    "core-js": "^3.4.4",
+    "echarts": "^4.2.1",
+    "element-ui": "^2.13.2",
+    "file-saver": "^2.0.0",
+    "html2canvas": "^1.0.0-rc.5",
+    "jspdf": "^1.5.3",
+    "print-js": "^1.0.63",
+    "video.js": "^7.5.5",
+    "videojs-contrib-hls": "^5.15.0",
+    "vue": "^2.6.10",
+    "vue-baidu-map": "^0.21.22",
+    "vue-i18n": "^8.4.0",
+    "vue-router": "^3.3.3",
+    "vuex": "^3.1.2",
+    "xlsx": "^0.14.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.9.6",
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-e2e-cypress": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-component": "^1.1.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "prettier": "^1.19.1",
+    "sass": "^1.23.7",
+    "sass-loader": "^8.0.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-bundle-analyzer": "^3.8.0"
+  },
+  "description": "```\r yarn install\r ```",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://61.144.244.211:8191/root/gps_platform_web.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

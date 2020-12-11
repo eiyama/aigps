@@ -1,0 +1,70 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{ margin:0; padding:0;font-size: 14px;}
+
+
+button,input,select,textarea{ font:14px/1.5 tahoma,arial,\5b8b\4f53;} input,select,textarea{ font-size:100%; outline: medium;}
+
+table{ border-collapse:collapse;border-spacing:0;}
+
+
+th{ text-align:inherit;}
+
+caption,th { text-align:left; }
+
+
+fieldset,img{ border:0;}
+
+
+iframe{ display:block;}
+
+
+ol,ul,li{ list-style:none;}
+
+i,b,em{ font-style:normal;}
+
+del{ text-decoration:line-through; }
+
+
+h1,h2,h3,h4,h5,h6 { font-weight:500;}
+q:before,q:after {content:'';}
+
+
+sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+
+ins,a{ text-decoration:none;}
+
+
+.clearFloat:after{visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0;}
+.clearFloat{ zoom:1; }
+.floatLeft, .floatRight{ display:inline;}
+.floatLeft{ float:left;}
+.floatRight{ float:right;}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block;}
+
+.BMap_cpyCtrl {
+    display: none;
+  }
+ .anchorBL {
+    display: none;
+ }
+
+audio,canvas,video{ display: inline-block;*display: inline;*zoom: 1;}
+
+abbr,acronym{ border:0;font-variant:normal;}
+address,caption,cite,code,dfn,em,th,var{ font-style:normal; font-weight:500;}
+
+body{ color:#000;font-family: 'Microsoft YaHei';}
+a{ color:#fff;font-size: 14px;}
+h1{font-size: 24px;}
+h2{font-size: 22px;}
+h3{font-size: 20px;}
+h4{font-size: 18px;}
+h5{font-size: 16px;}
+h6{font-size: 14px;}
+p{color: #666;}
+input::-ms-clear{display:none;}/*隐藏文本框叉子*/
+input::-ms-reveal{display:none;}/*隐藏密码框小眼睛*/
+/*.anchorBL{display:none;}*/
